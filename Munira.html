@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Munirah 🌹</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    /* Restored original index.html background */
+    background: radial-gradient(circle at top,#fff8f6,#fdf4ee 30%,#f7efe8 70%);
+    font-family:'Poppins',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    color:#5a4232;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Premium Rose Petal Layer Container */
+#rose-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    /* Soft premium rose petal gradient */
+    background: linear-gradient(135deg, #e24c62, #a61c32);
+    border-radius: 100% 0% 100% 100% / 100% 0% 100% 100%;
+    opacity: 0.8;
+    pointer-events: none;
+    box-shadow: inset -2px -2px 6px rgba(0,0,0,0.2), 0 3px 8px rgba(0,0,0,0.15);
+    transform-style: preserve-3d;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+        top: 110%;
+        transform: translateX(120px) rotateX(360deg) rotateY(180deg) rotateZ(540deg);
+    }
+}
+
+.card{
+    width:100%;
+    max-width:820px;
+    /* Restored original index.html glassmorphism and theme */
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border:1px solid rgba(212,175,55,0.3);
+    border-radius:28px;
+    padding:60px 50px;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+    position:relative;
+    overflow:hidden;
+    z-index: 2;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle,
+    rgba(212,175,55,0.12),
+    transparent 70%);
+    top:-100px;
+    right:-80px;
+}
+
+.card::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:radial-gradient(circle,
+    rgba(255,182,193,0.15),
+    transparent 70%);
+    bottom:-80px;
+    left:-80px;
+}
+
+.page{
+    display:none;
+    animation:fade 0.8s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1,h2{
+    font-family:'Cormorant Garamond',serif;
+    text-align:center;
+    color:#b8860b;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+h1{
+    font-size:3rem;
+}
+
+h2{
+    font-size:2.5rem;
+}
+
+p{
+    text-align:center;
+    line-height:2;
+    font-size:1.08rem;
+    margin-bottom:18px;
+}
+
+ul{
+    list-style:none;
+    margin-top:25px;
+}
+
+ul li{
+    text-align:center;
+    margin:18px 0;
+    font-size:1.05rem;
+    line-height:1.8;
+}
+
+/* Stagger Animation Framework for List Items */
+.page#page2.active ul li {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: staggerFadeIn 0.6s ease forwards;
+    animation-delay: calc(var(--item-idx) * 0.4s + 0.5s);
+}
+
+@keyframes staggerFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn{
+    display:block;
+    margin:40px auto 0;
+    border:none;
+    border-radius:999px;
+    padding:15px 38px;
+    font-size:1rem;
+    cursor:pointer;
+    background:linear-gradient(
+    135deg,
+    #d4af37,
+    #f1d88f
+    );
+    color:white;
+    font-weight:600;
+    box-shadow:0 12px 30px rgba(212,175,55,0.3);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* RSVP Premium Buttons Framework */
+.rsvp-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-rsvp {
+    border: none;
+    border-radius: 999px;
+    padding: 14px 32px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-accept {
+    background: linear-gradient(135deg, #e24c62, #bd243c);
+    color: white;
+    box-shadow: 0 10px 25px rgba(226, 76, 98, 0.35);
+}
+
+.btn-accept:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(226, 76, 98, 0.45);
+}
+
+.btn-decline {
+    background: transparent;
+    color: #8a6d52;
+    border: 1px solid rgba(138, 109, 82, 0.4);
+}
+
+.btn-decline:hover {
+    background: rgba(138, 109, 82, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Interactive Feedback Box Styles */
+.rsvp-feedback {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px dashed rgba(212, 175, 55, 0.4);
+    animation: fade 0.6s ease forwards;
+    text-align: center;
+}
+
+/* Redirecting Notice Animation Label */
+.redirect-notice {
+    font-size: 0.8rem;
+    color: #8a6d52;
+    margin-top: 10px;
+    opacity: 0.7;
+    font-style: normal !important;
+}
+
+.divider{
+    width:120px;
+    height:2px;
+    background:linear-gradient(
+    to right,
+    transparent,
+    #d4af37,
+    transparent
+    );
+    margin:25px auto;
+}
+
+.quest{
+    background:#fffaf2;
+    border:1px solid rgba(212,175,55,0.25);
+    border-radius:20px;
+    padding:25px;
+    margin-top:35px;
+}
+
+.quest h3{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    color:#b8860b;
+    margin-bottom:15px;
+    font-size:2rem;
+}
+
+.quest p{
+    margin:12px 0;
+}
+
+.signature{
+    text-align:center;
+    margin-top:35px;
+    font-style:italic;
+}
+
+/* Typewriter Quote Framework */
+.quote{
+    margin-top:20px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.4rem;
+    text-align:center;
+    color:#8a6d52;
+    min-height: 4.5rem; 
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.3rem;
+    background-color: #8a6d52;
+    margin-left: 3px;
+    vertical-align: middle;
+    animation: blink 0.8s step-end infinite;
+}
+
+.typewriter-cursor.hidden {
+    display: none;
+}
+
+@keyframes blink {
+    from, to { background-color: transparent }
+    50% { background-color: #8a6d52; }
+}
+
+@media(max-width:768px){
+
+.card{
+    padding:40px 25px;
+}
+
+h1{
+    font-size:2.2rem;
+}
+
+h2{
+    font-size:2rem;
+}
+
+.rsvp-container {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-rsvp {
+    width: 100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="rose-container"></div>
+
+<div class="card">
+
+<div class="page active" id="page1">
+    <h1>🌹 Assalamu Alaikum, Munirah 🌹</h1>
+    <div class="divider"></div>
+    <p>If you're seeing this, then the flowers reached the right person. 😊</p>
+    <p>I wanted to do something a little different because ordinary notes felt too ordinary.</p>
+    <p>So rather than writing a card, I thought I'd send you on a tiny adventure.</p>
+    <button class="btn" onclick="showPage('page2')">Continue</button>
+</div>
+
+<div class="page" id="page2">
+    <h2>🌸 Things I've Enjoyed Discovering</h2>
+    <div class="divider"></div>
+    <p>In the short time we've spoken, I've come to appreciate:</p>
+    <ul>
+        <li style="--item-idx: 0;">🌸 Your faith and the way it shapes your character.</li>
+        <li style="--item-idx: 1;">🌸 Your kindness.</li>
+        <li style="--item-idx: 2;">🌸 Your intelligence.</li>
+        <li style="--item-idx: 3;">🌸 The calmness in your voice.</li>
+        <li style="--item-idx: 4;">🌸 The impression you've left in a surprisingly short time.</li>
+        <li style="--item-idx: 5;">🌸 And a voice that should probably come with a warning label. 😂</li>
+    </ul>
+    <button class="btn" onclick="showPage('page3')">One Last Thing</button>
+</div>
+
+<div class="page" id="page3">
+    <h2>🌹 The Reveal</h2>
+    <div class="divider"></div>
+    <p>The flowers are simply to make you smile.</p>
+    <p>The gifts are a small gesture of admiration.</p>
+    <p>But this page exists for a different reason.</p>
+    <p><strong>Because I'd genuinely like the opportunity to grow closer to the person you are.</strong></p>
+    <button class="btn" onclick="showPage('page4')">Open Final Message</button>
+</div>
+
+<div class="page" id="page4">
+    <h2>☕ Final Message</h2>
+    <div class="divider"></div>
+    <p><strong>Munirah,</strong></p>
+    <p>If you're comfortable with it, I'd love the chance to continue our conversations over tea or coffee sometime.</p>
+    <p>No pressure.</p>
+    <p>No deadline.</p>
+    <p>Just a sincere invitation.</p>
+
+    <div class="quest" id="quest-card">
+        <h3>Quest Status</h3>
+        <p>✅ Flowers delivered</p>
+        <p>✅ Message unlocked</p>
+        <p id="verdict-status">⏳ Awaiting Munirah's verdict</p>
+        <br>
+        <h3>Reward Unlocked</h3>
+        <p>☕ One complimentary tea or coffee with Mousah.</p>
+        <p><em>Terms and conditions apply: excessive smiling, good conversation, and occasional terrible jokes may occur. 😄</em></p>
+        
+        <div class="rsvp-container" id="rsvp-actions">
+            <button class="btn-rsvp btn-accept" onclick="handleRSVP('accept')">Accept Quest ☕</button>
+            <button class="btn-rsvp btn-decline" onclick="handleRSVP('decline')">Decline Quest 🍂</button>
+        </div>
+    </div>
+
+    <div class="signature">— Mousah 🌹</div>
+    
+    <div class="quote" id="typewriter-quote"></div>
+</div>
+
+</div>
+
+<script>
+// Global Typewriter Configuration Context
+const quoteText = `"Some people are remembered for what they say.\nOthers for how they make people feel.\nYou strike me as the latter." 🌹`;
+let typingTracker = null;
+
+// Page switcher logic
+function showPage(pageId){
+    document.querySelectorAll('.page').forEach(page=>{
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+    if(pageId === 'page4') {
+        startTypewriter();
+    } else {
+        if(typingTracker) clearTimeout(typingTracker);
+        document.getElementById('typewriter-quote').innerHTML = '';
+    }
+}
+
+// 3D Luxury Falling Rose Petal Physics
+function createRosePetals(count = 30, preFill = true) {
+    const container = document.getElementById('rose-container');
+
+    for (let i = 0; i < count; i++) {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        
+        const size = Math.random() * 14 + 12; 
+        petal.style.width = `${size}px`;
+        petal.style.height = `${size}px`;
+        petal.style.left = `${Math.random() * 100}%`;
+        
+        if (preFill) {
+            petal.style.delay = `${Math.random() * 8}s`;
+            petal.style.animationDelay = `${Math.random() * -10}s`; 
+        } else {
+            petal.style.top = `-5%`;
+            petal.style.animationDelay = `${Math.random() * 1.5}s`;
+        }
+        
+        const duration = Math.random() * 5 + 8; 
+        petal.style.animationDuration = `${duration}s`;
+
+        if (Math.random() > 0.5) {
+            petal.style.background = 'linear-gradient(135deg, #f05a72, #bd243c)';
+        }
+
+        container.appendChild(petal);
+    }
+}
+
+// RSVP Processing & WhatsApp Forwarding Engine
+function handleRSVP(choice) {
+    const actionsContainer = document.getElementById('rsvp-actions');
+    const verdictStatus = document.getElementById('verdict-status');
+    const questCard = document.getElementById('quest-card');
+    
+    actionsContainer.style.display = 'none';
+    
+    const feedbackBox = document.createElement('div');
+    feedbackBox.classList.add('rsvp-feedback');
+    
+    // Core Number Configuration Target
+    const phoneNumber = "256751822493"; // Clean international layout format for Uganda
+    let customMessage = "";
+    
+    if (choice === 'accept') {
+        verdictStatus.innerHTML = '🎉 **Quest Accepted!**';
+        feedbackBox.innerHTML = `
+            <p style="color: #a61c32; font-weight: 600; margin-bottom: 5px;">Excellent choice. 🌹</p>
+            <p style="font-size: 0.95rem; font-style: italic;">A scheduling pigeon will be sent shortly to coordinate details. Looking forward to it!</p>
+            <p class="redirect-notice">Opening WhatsApp chat...</p>
+        `;
+        createRosePetals(40, false);
+        customMessage = "Assalamu Alaikum Mousah, I opened your message and I'd love to get coffee or tea sometime! ☕✨";
+    } else {
+        verdictStatus.innerHTML = '🍂 **Quest Formally Declined**';
+        feedbackBox.innerHTML = `
+            <p style="color: #5a4232; font-weight: 600; margin-bottom: 5px;">Completely understood. 😊</p>
+            <p style="font-size: 0.95rem; font-style: italic;">Thank you for your honesty, Munirah. I deeply appreciate your time!</p>
+            <p class="redirect-notice">Opening WhatsApp chat...</p>
+        `;
+        customMessage = "Assalamu Alaikum Mousah, thank you so much for the thoughtful gift and message. I appreciate it, but I will have to respectfully decline. Thank you for your honesty and kindness! 🙏🌸";
+    }
+    
+    questCard.appendChild(feedbackBox);
+    
+    // Encode the pre-written string into a valid browser URL package
+    const encodedText = encodeURIComponent(customMessage);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+    
+    // Deliberate 3-second delay giving her time to process your card graphics before bouncing
+    setTimeout(() => {
+        window.location.href = whatsappUrl;
+    }, 3200);
+}
+
+// Asynchronous Poetic Typewriter Execution Engine
+function startTypewriter() {
+    const container = document.getElementById('typewriter-quote');
+    container.innerHTML = '<span id="quote-body"></span><span id="cursor" class="typewriter-cursor"></span>';
+    
+    const bodyContainer = document.getElementById('quote-body');
+    const cursorElement = document.getElementById('cursor');
+    let idx = 0;
+
+    if(typingTracker) clearTimeout(typingTracker);
+
+    function typeCharacter() {
+        if (idx < quoteText.length) {
+            const char = quoteText.charAt(idx);
+            
+            if (char === '\n') {
+                bodyContainer.innerHTML += '<br>';
+            } else {
+                bodyContainer.innerHTML += char;
+            }
+            
+            idx++;
+            let deliberateSpeed = char === '.' || char === '?' || char === '!' ? 500 : 50; 
+            typingTracker = setTimeout(typeCharacter, deliberateSpeed);
+        } else {
+            cursorElement.classList.add('hidden');
+        }
+    }
+
+    setTimeout(typeCharacter, 800);
+}
+
+window.addEventListener('DOMContentLoaded', () => createRosePetals(30, true));
+</script>
+
+</body>
+</html>
